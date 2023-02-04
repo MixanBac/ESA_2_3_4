@@ -21,8 +21,6 @@
             <th>Last name</th>
             <th>Birthday</th>
             <th>Quantity games</th>
-            <th></th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -30,22 +28,23 @@
             <td th:text="${player.id}">
             </td>
             <td th:text="${player.firstName}">
-            <td>
+            </td>
             <td th:text="${player.lastName}">
-            <td>
+            </td>
             <td th:text="${player.birthdate}">
-            <td>
+            </td>
             <td th:text="${player.quantityGames}">
-            <td>
+            </td>
+<!--            <td>-->
 <!--                <form th:action="@{/players/{id}/update(id=${player.id})}">-->
 <!--                    <input type="submit" class="btn btn-warning" value="Update">-->
 <!--                </form>-->
-            </td>
-            <td>
+<!--            </td>-->
+<!--            <td>-->
 <!--                <form th:action="@{/players/{id}/delete(id=${player.id})}" th:method="delete">-->
 <!--                    <input type="submit" class="btn btn-danger" value="Delete">-->
 <!--                </form>-->
-            </td>
+<!--            </td>-->
         </tr>
         </tbody>
     </table>
@@ -63,8 +62,7 @@
             <th>Level</th>
             <th>Class</th>
             <th>Spell cells</th>
-            <th></th>
-            <th></th>
+            <th>Player ID</th>
         </tr>
         </thead>
         <tr th:each="hero : ${heroes}">
@@ -80,16 +78,16 @@
             </td>
             <td th:text="${hero.player.id}">
             </td>
-            <td>
+<!--            <td>-->
 <!--                <form th:action="@{/heroes/{id}/update(id=${hero.id})}">-->
 <!--                    <input type="submit" class="btn btn-warning" value="Update">-->
 <!--                </form>-->
-            </td>
-            <td>
+<!--            </td>-->
+<!--            <td>-->
 <!--                <form th:action="@{/heroes/{id}/delete(id=${hero.id})}" th:method="delete">-->
 <!--                    <input type="submit" class="btn btn-danger" value="Delete">-->
 <!--                </form>-->
-            </td>
+<!--            </td>-->
         </tr>
     </table>
 </div>
