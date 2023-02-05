@@ -1,18 +1,24 @@
 package ESA24.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
-@Table(name="_player")
-public class Player {
+@Table(name="player")
+public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type="org.hibernate.type.UUIDCharType")
     @Column(name = "id")
-    private Long id;
+    private UUID id;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
@@ -22,16 +28,14 @@ public class Player {
     @Column(name = "quantitygames")
     private Integer quantityGames;
 
-    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    private Set<Hero> heroes = new HashSet<>();
     public Player() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -67,11 +71,4 @@ public class Player {
         this.quantityGames = quantityGames;
     }
 
-    public Set<Hero> getHeroes() {
-        return heroes;
-    }
-
-    public void setHeroes(Set<Hero> heroes) {
-        this.heroes = heroes;
-    }
 }

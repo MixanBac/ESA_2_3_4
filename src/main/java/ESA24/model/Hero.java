@@ -1,15 +1,20 @@
 package ESA24.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
-@Table(name = "hero")
-public class Hero {
+@Table(name = "_hero")
+public class Hero implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type="org.hibernate.type.UUIDCharType")
     @Column(name = "id")
-    private Long id;
+    private UUID id;
     @Column(name = "namehero")
     private String nameHero;
     @Column(name = "level")
@@ -26,11 +31,11 @@ public class Hero {
     public Hero() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
