@@ -25,7 +25,7 @@ public class Hero implements Serializable {
     private Integer spellCells;
 
     @ManyToOne
-    @JoinColumn(name = "player_id")
+    @JoinColumn
     private Player player;
 
     public Hero() {

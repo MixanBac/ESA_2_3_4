@@ -7,21 +7,27 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>API XSLT</title>
+                <title>XSLT API</title>
                 <body>
-                    <h1>Test XSLT</h1>
                     <xsl:apply-templates />
                 </body>
             </head>
             <style>
-                table, th, td {
+                table, th{
                 border: 1px solid black;
+                background: blue;
+                color: white;
+                }
+                td {
+                border: 1px solid black;
+                background: green;
+                color: white;
                 }
             </style>
         </html>
     </xsl:template>
     <xsl:template match="ArrayList">
-        <h2>Heroes</h2>
+        <h1>Heroes</h1>
         <table>
             <tr>
                 <th>id</th>

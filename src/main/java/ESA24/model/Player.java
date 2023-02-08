@@ -1,6 +1,7 @@
 package ESA24.model;
 
 import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,9 +25,13 @@ public class Player implements Serializable {
     @Column(name = "lastname")
     private String lastName;
     @Column(name = "birthdate")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
     @Column(name = "quantitygames")
     private Integer quantityGames;
+
+    @OneToMany
+    private List<Hero> heroes;
 
     public Player() {
     }
@@ -71,4 +76,11 @@ public class Player implements Serializable {
         this.quantityGames = quantityGames;
     }
 
+    public List<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public void setHeroes(List<Hero> heroes) {
+        this.heroes = heroes;
+    }
 }
